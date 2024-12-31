@@ -29,6 +29,9 @@ return new class extends Migration
             $table->text('address')->nullable();
             $table->string('google_map_lat')->nullable();
             $table->string('google_map_long')->nullable();
+            $table->boolean('active')->default(false);
+            $table->string('status')->default('active');
+
             $table->timestamps();
         });
     }

@@ -35,6 +35,10 @@ export default function Navbar() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [phoneNumber, setPhoneNumber] = useState('');
+const loginUser = JSON.parse( localStorage.getItem("traveldealuser"))|| null;
+
+
+
   const handleTabSwitch = (tab) => {
     setActiveTab(tab);
   };
@@ -57,7 +61,9 @@ export default function Navbar() {
     
     const res=await axios.post(`${baseurl}/Signupcustomer`,{name,email,password,phone_number:phoneNumber})
    
-    if(res.statusText=="OK"){
+
+
+    if(res.data.success){
       toggleModal()
       setName('');setEmail("");setPassword("");setPhoneNumber("")
       Swal.fire({
@@ -66,13 +72,22 @@ export default function Navbar() {
         icon: 'success',
         confirmButtonText: 'ok'
       })
+      localStorage.setItem("traveldealuser",JSON.stringify(res.data.user.id))
+    }
+    else{
+      Swal.fire({
+        title: 'error',
+        text: res.data.message,
+        icon: 'error',
+        confirmButtonText: 'ok'
+      })
     }
   }
 
 const Loginhandel=async(e)=>{
   e.preventDefault();
   const res=await axios.post(`${baseurl}/logincustomer`,{email,password})
-  if(res.data.status){
+  if(res.data.success){
     toggleModal()
     setEmail("");setPassword("");
     Swal.fire({
@@ -81,6 +96,8 @@ const Loginhandel=async(e)=>{
       icon: 'success',
       confirmButtonText: 'ok'
     })
+    localStorage.setItem("traveldealuser",JSON.stringify(res.data.user.id))
+
   }
   else{
     Swal.fire({
@@ -214,6 +231,17 @@ const Loginhandel=async(e)=>{
     setActiveTab(tab);
   };
 const [togglecontect,settogglecontect]=useState("")
+const handelLogoutuser=()=>{
+  localStorage.removeItem('traveldealuser');
+  window.location.reload()
+  Swal.fire({
+    title: 'done',
+    text: "Logout Success",
+    icon: 'success',
+    confirmButtonText: 'ok'
+  })
+}
+
   return (
     <>
       <div className="flex sticky top-0 z-50 px-8 py-2 lg:px-14 lg:py-4 bg-white shadow-md items-center justify-between">
@@ -294,12 +322,18 @@ const [togglecontect,settogglecontect]=useState("")
    </div>
   </div>
             
-            <div className="flex items-center mr-8 text-xl cursor-pointer font-semibold" onClick={toggleModal}>
-              <CgProfile className="w-8 h-8 text-gray-900" />
-              <span className="ml-2">
-                Login
-              </span>
-            </div>
+            {loginUser &&  <div className="flex items-center mr-8 text-xl cursor-pointer font-semibold" onClick={handelLogoutuser}>
+                  <CgProfile className="w-8 h-8 text-gray-900" />
+                  <span className="ml-2">
+                    Logout
+                  </span>
+                </div>}
+             {!loginUser &&    <div className="flex items-center mr-8 text-xl cursor-pointer font-semibold" onClick={toggleModal}>
+                  <CgProfile className="w-8 h-8 text-gray-900" />
+                  <span className="ml-2">
+                    Login
+                  </span>
+                </div>}
             <Button 
               title="Add Property"
               btn="btn"

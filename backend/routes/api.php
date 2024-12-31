@@ -13,6 +13,8 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\Banner_image_controller;
 use App\Http\Controllers\AboutController;
 use App\Http\Controllers\PolicyController;
+use App\Http\Controllers\MessageSendController;
+
 
 Route::get('/user', function (Request $request) {
     return $request->user();
@@ -20,10 +22,15 @@ Route::get('/user', function (Request $request) {
 
 
 
+Route::post('v1/messagesend', [MessageSendController::class,"sendMessage"]);
 
 Route::apiResource('v1/property', PropertyController::class);
 Route::apiResource('v1/trendingproperty', TrendingPropertyController::class);
 Route::apiResource('v1/testimonial', TestimonialController::class);
+
+Route::get('v1/messagesend', [MessageSendController::class,"sendMessage"]);
+
+
 Route::apiResource('v1/blog', blodController::class);
 Route::apiResource('v1/category', categoriesController::class);
 

@@ -175,19 +175,14 @@ useEffect(()=>{dispatch(getsingleproperty(slug))},[])
 useEffect(()=>{setsingledata(state.data)},[state])
 
 
+console.log(state,"sdkcskdnlcwewcf")
 
 
 
 
 
-    const goNext = () => {
 
-        if (swiper) swiper.slideNext();
-    };
-
-    const goPrev = () => {
-        if (swiper) swiper.slidePrev();
-    };
+   
 
     const [showMore, setShowMore] = useState(false);
 
@@ -463,16 +458,7 @@ useEffect(()=>{setsingledata(state.data)},[state])
                                 </SwiperSlide>)
                             })}
                           
-                         
-                            {/* <SwiperSlide>
-                                <Image className='w-full h-[300px] lg:h-[600px] rounded-2xl object-cover' width={100} height={200} src='/images/slidernew-3.webp' alt='Slide 3' />
-                            </SwiperSlide>
-                            <SwiperSlide>
-                                <Image className='w-full h-[300px] lg:h-[600px] rounded-2xl object-cover' width={100} height={200} src='/images/slidernew-4.webp' alt='Slide 3' />
-                            </SwiperSlide>
-                            <SwiperSlide>
-                                <Image className='w-full h-[300px] lg:h-[600px] rounded-2xl object-cover' width={100} height={200} src='/images/slidernew-5.webp' alt='Slide 3' />
-                            </SwiperSlide> */}
+                        
                         </Swiper>
 
 
@@ -678,14 +664,7 @@ useEffect(()=>{setsingledata(state.data)},[state])
                                 </div>
                             </div>
                         </div>
-{
 
-
-
-
-
-
-}
                         <div className="flex-none w-full lg:w-1/3  p-4 right-container h-[100%] sticky top-[85px]">
                             <div className="bg-white shadow-lg p-6 rounded-xl mb-[30px]">
                                 <ContactForm />
@@ -694,37 +673,30 @@ useEffect(()=>{setsingledata(state.data)},[state])
                             <div className="bg-white shadow-lg p-6 rounded-xl mb-[30px]">
                                 <h3 className="text-xl font-semibold">Real Estate Agent</h3>
                                 <div className="flex flex-wrap gap-4">
-                                    {agents.map((agent) => (
-                                        <div key={agent.id} className="flex w-full mt-4 items-center p-2 rounded-md mb-4 bg-white shadow-sm">
+                                    {singledata && 
+                                        <div  className="flex w-full mt-4 items-center p-2 rounded-md mb-4 bg-white shadow-sm">
                                             <img
-                                                src={agent.img}
+                                                src={'https://randomuser.me/api/portraits/men/1.jpg'}
                                                 alt="agent"
                                                 className="w-45 h-45 rounded-full object-cover"
                                             />
                                             <div className="flex flex-col ml-2">
-                                                <span className="text-gray-800 font-semibold">{agent.name}</span>
-                                                <span className="text-gray-600">{agent.title}</span>
+                                                <span className="text-gray-800 font-semibold capitalize">{singledata.agent_name}</span>
+                                                <span className="text-gray-600">{singledata.title}</span>
                                                 <span className="text-gray-600">
-                                                    {agent.phoneNumber}
+                                                    {singledata.agent_phone}
                                                 </span>
                                             </div>
                                         </div>
-                                    ))}
+                                }
                                 </div>
                             </div>
                         </div>
                     </div>
+      </div>
 
 
-
-
-
-
-
-                </div>
-
-
-                <div className='w-full px-[1rem] lg:px-[5rem] py-10'>
+ <div className='w-full px-[1rem] lg:px-[5rem] py-10'>
                     <div className="content mb-[20px]">
                         <h2 className="text-4xl my-2 text-[#181a20] font-semibold">
 

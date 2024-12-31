@@ -1,7 +1,10 @@
 'use client'
 
 
+import axios from 'axios';
 import React, { useState } from 'react';
+import Swal from 'sweetalert2';
+import { baseurl } from './store/baseurl';
 
 const ContactForm = () => {
   const [formData, setFormData] = useState({
@@ -11,6 +14,7 @@ const ContactForm = () => {
     message: ''
 
   });
+const user= JSON.parse( localStorage.getItem("traveldealuser"));
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -20,10 +24,41 @@ const ContactForm = () => {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async(e) => {
     e.preventDefault();
-    // Handle form submission logic here
-    console.log('Form data submitted:', formData);
+    if(!user){
+ Swal.fire({
+    title: 'login',
+    text: "Please login first ",
+    icon: 'error',
+    confirmButtonText: 'Try Agyan'
+  })}
+  else{
+    const newdata={...formData,user_id:user}
+const data=await axios.post(`${baseurl}/messagesend`,newdata)
+if(data.data.success){
+  Swal.fire({
+    title: 'send Message',
+    text: data.data.message,
+    icon: 'success',
+    confirmButtonText: 'Done'
+  })
+  setFormData({
+    name: '',
+    email: '',
+    phoneNumber: '',
+    message: ''
+
+  })
+}
+
+
+  }
+
+
+
+
+    
   };
 
   return (
@@ -60,14 +95,14 @@ const ContactForm = () => {
           </div>
 
           <div className="mb-4">
-            <label htmlFor="email" className="block text-gray-700 font-medium mb-2">Email</label>
+            <label htmlFor="number" className="block text-gray-700 font-medium mb-2">Mobile Number</label>
             <input
               type="number"
               id="number "
-              name="number"
+              name="phone"
               placeholder='Phone Number'
               className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#ee7461]"
-              value={formData.phoneNumber}
+              value={formData.phone}
               onChange={handleChange}
               required
             />
