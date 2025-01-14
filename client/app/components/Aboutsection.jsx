@@ -44,8 +44,8 @@ export default function Aboutsection() {
         <>
 
             <div className="w-full flex flex-col lg:flex-row justify-between my-4 bg-[#fef7f6] rounded-md">
-                <div className="px-6 py-6 lg:px-[5%] lg:py-[5%]">
-                    <h2 className="text-[#181a20] text-[30px]  lg:text-4xl tracking-[2px] leading-snug lg:leading-[4rem] font-[550]">
+                <div className="px-5 md:px-16 xl:px-32 py-6 lg:px-[5%] lg:py-[5%]">
+                    <h2 className="text-[#181a20] text-xl md:text-2xl tracking-[2px] leading-snug lg:leading-[4rem] font-[550]">
                         Let’s Find The Right
                         <br className='hidden lg:block' />
                         Selling Option For You

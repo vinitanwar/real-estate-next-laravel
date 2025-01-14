@@ -26,7 +26,7 @@ export const navLink = [
       Key: 'blog'
     }
   ];
-  export const apiLink = 'http://localhost:8000/api/v1'
-  export const storageLink = 'http://localhost:8000/storage'
+  export const apiLink = 'https://prakarsh123.in/api/v1'
+  export const storageLink = 'https://prakarsh123.in/storage'
 
   // /storage/$

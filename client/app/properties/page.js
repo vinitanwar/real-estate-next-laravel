@@ -461,32 +461,34 @@ export default function Page() {
   return (
     <>
       <div className='w-full'>
-        <div className='w-full h-auto relative'>
-          <Image
-            width={100}
-            height={100}
-            className='w-full h-[300px] object-cover relative after:content-[] after:absolute after:w-full after:h-[300px] after:bg-black '
-            src='/images/bgimgs.jpg'
-          />
-          <div className='absolute inset-0 bg-black opacity-50'></div>
-          <div className='absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 '>
-            <h2 className='text-white text-4xl text-center my-2 font-[500] '>
-              DISCOVER OUR PROPERTIES
-            </h2>
-            <p className='text-white text-xl text-center font-normal '>
-              Each place is a good choice our wonderful properties.
-            </p>
-            <p className='text-white text-xl text-center font-normal my-2'>
-              Home / For Rent
-            </p>
-          </div>
-        </div>
+      <div className="w-full h-auto relative">
+  <Image
+    width={1920} // Updated to larger width for better scaling
+    height={1080} // Updated to maintain aspect ratio
+    className="w-full h-[200px] sm:h-[250px] md:h-[300px] lg:h-[400px] object-cover"
+    src="/images/bgimgs.jpg"
+    alt="Background Image"
+  />
+  <div className="absolute inset-0 bg-black opacity-50"></div>
+  <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 md:px-4">
+    <h2 className="text-white text-lg sm:text-2xl md:text-3xl lg:text-4xl text-center my-2 font-medium">
+      DISCOVER OUR PROPERTIES
+    </h2>
+    <p className="text-white text-sm sm:text-base md:text-lg lg:text-xl text-center font-normal">
+      Each place is a good choice from our wonderful properties.
+    </p>
+    <p className="text-white text-sm sm:text-base md:text-lg lg:text-xl text-center font-normal my-2">
+      Home / For Rent
+    </p>
+  </div>
+</div>
+
 
         
 
-        <div className='w-full px-5 lg:px-20 py-8 bg-[#f7f7f7]'>
-          <div className='flex justify-between flex-col lg:flex-row gap-5 mb-5 px-7'>
-            <div>
+        <div className='w-full  px-5 md:px-16 xl:px-32 py-8 bg-[#f7f7f7]'>
+          <div className='flex justify-between flex-col lg:flex-row gap-5 mb-5 '>
+            <div className='flex items-center '>
               {/* <CustomDropdown
                 options={['All', 'Sale', 'Rent', 'Buy']}
                 selectedOption={filter.type}
@@ -505,12 +507,12 @@ export default function Page() {
               />
             </div>
 
-            <div className='flex items-center gap-2'>
+            <div className='flex items-center px-5 gap-x-2'>
               <span className='text-lg text-[#717171]'>
                 Sort By
               </span>
               <select
-                className='bg-transparent pt-[0.375rem] pr-[2.25rem] pb-[0.375rem] pl-[0.75rem] font-medium text-[#212529] text-[15px]'
+                className='bg-transparent px-3 py-2 font-medium text-[#212529] text-[15px]'
                 onChange={(e) => setSelectedSort(e.target.value)}
               >
                 {['newest', 'oldest', 'best Seller', 'price lower', 'price upper'].map((value) => {

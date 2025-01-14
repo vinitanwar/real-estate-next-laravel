@@ -1,75 +1,69 @@
-"use client"
-import React, { useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { getpolicy } from '../components/store/slices/policeSlice';
-import { storageLink } from '../constants';
+"use client";
+import React, { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { getpolicy } from "../components/store/slices/policeSlice";
+import { storageLink } from "../constants";
 
 const PrivacyPolicyPage = () => {
-  const dispatch=useDispatch()
-  const state=useSelector(state=>state.policy)
-  const [policyData,setpolicyDate]=useState()
-  useEffect(()=>{dispatch(getpolicy())},[])
-  useEffect(()=>{setpolicyDate(state.data[0])},[state])
-
-
+  const dispatch = useDispatch();
+  const state = useSelector((state) => state.policy);
+  const [policyData, setpolicyDate] = useState();
+  useEffect(() => {
+    dispatch(getpolicy());
+  }, []);
+  useEffect(() => {
+    setpolicyDate(state.data[0]);
+  }, [state]);
 
   return (
-    <div className='main-div  w-full'>
+    <div className="main-div  w-full">
       <div className="relative">
-        <img 
-          src={`${storageLink}/${ policyData && policyData.hero_img_1}`}
-          alt="Header Image" 
-          className="w-full h-[350px] object-cover" 
+        <img
+          src={`${storageLink}/${policyData && policyData.hero_img_1}`}
+          alt="Header Image"
+          className="w-full h-[350px] object-cover"
         />
-        
 
         <div className="absolute inset-0 flex flex-col justify-center items-start px-[10%] text-white bg-black bg-opacity-50">
-       
           <h2 className="text-3xl font-bold mb-2">Our Privacy Policy</h2>
 
           <p className="text-lg">Disclaimer</p>
         </div>
       </div>
-      
+
       {/* Privacy Policy Content */}
       <div className="p-6 max-w-7xl mx-auto rounded-lg mt-8 mb-8">
         <h1 className="text-4xl text-[#656665] font-semibold   mb-4">
-        Privacy Policy
+          Privacy Policy
         </h1>
-        <h2 className="text-2xl text-[#656665] mb-4">What information do we collect?</h2>
-        {
-          policyData && 
+        <h2 className="text-2xl text-[#656665] mb-4">
+          What information do we collect?
+        </h2>
+        {policyData && (
           <div
-                                    className="slider-description"
-                                    dangerouslySetInnerHTML={{
-                                      __html: policyData.description1,
-                                    }}
-                                  ></div>
-
-        }
-         {
-          policyData && 
+            className="slider-description"
+            dangerouslySetInnerHTML={{
+              __html: policyData.description1,
+            }}
+          ></div>
+        )}
+        {policyData && (
           <div
-                                    className="slider-description"
-                                    dangerouslySetInnerHTML={{
-                                      __html: policyData.description2,
-                                    }}
-                                  ></div>
+            className="slider-description"
+            dangerouslySetInnerHTML={{
+              __html: policyData.description2,
+            }}
+          ></div>
+        )}
 
-        }
-     
-     {
-          policyData && 
+        {policyData && (
           <div
-                                    className="slider-description"
-                                    dangerouslySetInnerHTML={{
-                                      __html: policyData.description3,
-                                    }}
-                                  ></div>
-
-        }
-
-       
+            className="slider-description"
+            dangerouslySetInnerHTML={{
+              __html: policyData.description3,
+            }}
+          ></div>
+        )}
 
         {/* <h2 className="text-2xl text-[#656665]  font-semibold mb-4">Terms and Conditions</h2>
         <p className="text-base text-[#656665]  mb-4">

@@ -45,30 +45,40 @@ export default function Builderslider() {
   return (
 <>
 
-<div className="px-8 lg:px-20 md:px-8 sm:px-8 mt-12 overflow-hidden">
+<div className="px-5 md:px-16 xl:px-32  mt-12 overflow-hidden">
       <div className="content">
         <h2 className="text-2xl font-bold text-gray-800 text-start">Popular builders</h2>
         <p className="text-xl font-bold text-gray-500 text-start">in Chandigarh</p>
       </div>
 
 
-      <div className='my-8 flex justify-around flex-wrap'>
-      {cardsData.map((card, index) => (
-        <div key={index} className='flex w-full sm:w-[400px] items-center rounded-xl border border-[#ddd] p-4 mx-4 mb-8'>
-          <div className='w-[80px] h-[80px] border border-[#ebecf0] flex justify-center rounded-full ml-4'>
-            <Image src={card.image} width={100} height={100} className='w-[75%] h-[100%] object-contain' />
-          </div>
-          <div className='h-[100px] ml-4 flex flex-col justify-center'>
-            <h3 className='text-[#091e42] my-1 font-medium text-xl'>
-              {card.name}
-            </h3>
-            <p className='text-[#8993a4] text-[14px]'>
-              {card.totalProjects} Total Projects | {card.projectsInCity} in this city
-            </p>
-          </div>
-        </div>
-      ))}
+      <div className="my-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 px-4">
+  {cardsData.map((card, index) => (
+    <div
+      key={index}
+      className="flex w-full items-center rounded-xl border border-gray-200 shadow-sm p-4 bg-white hover:shadow-md transition-shadow duration-300"
+    >
+      <div className="w-[80px] h-[80px] flex-shrink-0 border border-gray-200 flex items-center justify-center rounded-full">
+        <Image
+          src={card.image}
+          width={100}
+          height={100}
+          alt={`${card.name} logo`}
+          className="w-[75%] h-[75%] object-contain"
+        />
+      </div>
+      <div className="ml-4 flex-1">
+        <h3 className="text-gray-900 font-medium text-lg md:text-xl leading-snug">
+          {card.name}
+        </h3>
+        <p className="text-gray-600 text-sm md:text-base mt-1">
+          {card.totalProjects} Total Projects | {card.projectsInCity} in this city
+        </p>
+      </div>
     </div>
+  ))}
+</div>
+
 
 
 </div>

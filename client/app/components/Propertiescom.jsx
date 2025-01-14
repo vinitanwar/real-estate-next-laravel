@@ -40,7 +40,7 @@ export default function Slidercom() {
 
   return (
     <>
-      <div className="w-full px-[1rem] lg:px-[5rem] py-10">
+      <div className="w-full px-5 md:px-16 xl:px-32 py-10">
         <div className="content flex justify-between items-center ">
           <div>
             <h2 className="text-2xl sm:text-3xl lg:text-4xl my-2 sm:my-4 lg:my-6 text-[#181a20] font-semibold">
@@ -51,7 +51,7 @@ export default function Slidercom() {
             </p>
           </div>
 
-          <div className="hidden lg:block">
+          <div className="hidden lg:flex ">
             {["All", "Rent", "Pg", "Buy", "Commercial"].map((value, index) => (
               <button
                 key={index}
@@ -66,7 +66,7 @@ export default function Slidercom() {
           </div>
         </div>
 
-        <div className="cards-container w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3  xl:grid-cols-4  lg:gap-4   mt-4 lg:mt-8 relative">
+        <div className="cards-container w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3  xl:grid-cols-4   lg:gap-4   mt-4 lg:mt-8 relative">
             {isLoading ? (
   <>
     <div className="animate-pulse">

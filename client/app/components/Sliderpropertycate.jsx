@@ -44,7 +44,7 @@ useEffect(()=>{dispatch(getcategory())},[])
   
 
   return (
-    <div className="w-full px-[1rem] lg:px-[5rem] py-10">
+    <div className="w-full px-5 md:px-16 xl:px-32 py-10">
       <div className="content">
         <h2 className="text-4xl my-2 text-[#181a20] font-semibold">
           Explore Apartment Types
@@ -54,7 +54,7 @@ useEffect(()=>{dispatch(getcategory())},[])
         </p>
       </div>
 
-      <div className="cards-container w-full p-4 lg:gap-5 lg:p-8 mt-8 relative">
+      <div className="cards-container w-full  lg:gap-5  mt-8 relative">
         <Swiper
           modules={[Pagination, Navigation]}
           spaceBetween={30}

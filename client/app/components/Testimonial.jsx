@@ -60,7 +60,7 @@ useEffect(()=>{dispatch(gettestimonial())},[])
 useEffect(()=>{settestimonialData(state.data)},[state])
     
     return (
-        <div className="w-full px-[1rem] lg:px-[5rem] py-10 ">
+        <div className="w-full px-5 md:px-16 xl:px-32 py-10 ">
             <div className="content">
                 <h2 className="text-4xl my-2 text-[#181a20] font-semibold">
                     People Love Living with Realton
