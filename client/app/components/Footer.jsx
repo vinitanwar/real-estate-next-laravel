@@ -1,12 +1,11 @@
-'use client';
+"use client";
 
-import React from 'react';
-import Image from 'next/image';
-import { FaFacebookF } from "react-icons/fa";
-import { FaXTwitter } from "react-icons/fa6";
-import { FaInstagram } from "react-icons/fa";
-import { CiLinkedin } from "react-icons/ci";
-import Link from 'next/link';
+import React from "react";
+import Image from "next/image";
+import { FaFacebookF, FaTwitter, FaInstagram } from "react-icons/fa";
+import Link from "next/link";
+import { FaLinkedin } from "react-icons/fa6";
+
 
 export default function Footer() {
   return (
@@ -27,10 +26,18 @@ export default function Footer() {
             />
           </div>
           <div className="social-icons flex justify-center sm:justify-end gap-4 text-xl text-white">
-            <FaFacebookF />
-            <FaXTwitter />
-            <FaInstagram />
-            <CiLinkedin />
+            <Link href="https://www.facebook.com" >
+              <FaFacebookF className="text-white hover:text-blue-300" />
+            </Link>
+            <Link href="https://twitter.com" >
+              <FaTwitter className="ttext-white hover:text-blue-300" />
+            </Link>
+            <Link href="https://www.instagram.com" >
+              <FaInstagram className="text-white hover:text-blue-300" />
+            </Link>
+            <Link href="https://www.linkedin.com" >
+              <FaLinkedin  className="text-white hover:text-blue-300" />
+            </Link>
           </div>
         </div>
 
@@ -39,39 +46,67 @@ export default function Footer() {
           <div className="grid grid-cols-2 sm:grid-cols-3 gap-6">
             {/* Popular Links */}
             <div>
-              <h6 className="mb-4 text-white font-semibold text-sm uppercase">Popular Links</h6>
+              <h6 className="mb-4 text-white font-semibold text-sm uppercase">
+                Popular Links
+              </h6>
               <ul className="text-[#bebdbd] space-y-3 text-sm">
                 <li>
-                  <Link href="/">Apartment for Rent</Link>
+                  <Link href="/">
+                    <span className=" hover:text-white">PG for Rent</span>
+                  </Link>
                 </li>
-                <li>Apartment for Rent</li>
-                <li>Apartment for Rent</li>
-                <li>Apartment for Rent</li>
+                <li>
+                  <Link href="/">
+                    <span className="hover:text-white">Buy Apartment</span>
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/">
+                    <span className="hover:text-white">Plot for Rent</span>
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/">
+                    <span className="hover:text-white">Commercial</span>
+                  </Link>
+                </li>
               </ul>
             </div>
 
             {/* Quick Links */}
             <div>
-              <h6 className="mb-4 text-white font-semibold text-sm uppercase">Quick Links</h6>
+              <h6 className="mb-4 text-white font-semibold text-sm uppercase">
+                Quick Links
+              </h6>
               <ul className="text-[#bebdbd] space-y-3 text-sm">
                 <li>
-                  <Link href="/terms-and-condition">Terms of Use</Link>
+                  <Link href="/" className="hover:text-white">
+                    Home
+                  </Link>
                 </li>
                 <li>
-                  <Link href="/privacy-policy">Privacy Policy</Link>
+                  <Link href="/projects" className="hover:text-white">
+                    Listing
+                  </Link>
                 </li>
                 <li>
-                  <Link href="/about">Our Services</Link>
+                  <Link href="/properties" className="hover:text-white">
+                    Property
+                  </Link>
                 </li>
                 <li>
-                  <Link href="/contact">Contact Support</Link>
+                  <Link href="/blog " className="hover:text-white">
+                    Blog
+                  </Link>
                 </li>
               </ul>
             </div>
 
             {/* Discover Links */}
             <div>
-              <h6 className="mb-4 text-white font-semibold text-sm uppercase">Discover</h6>
+              <h6 className="mb-4 text-white font-semibold text-sm uppercase">
+                Discover
+              </h6>
               <ul className="text-[#bebdbd] space-y-3 text-sm">
                 <li>Miami</li>
                 <li>Los Angeles</li>
@@ -82,17 +117,32 @@ export default function Footer() {
           </div>
 
           {/* Contact Info and Newsletter */}
-          <div className="flex flex-col space-y-8">
-            <div className="text-white">
+          <div className="flex flex-col gap-y-5">
+            <div className="text-white xl:hidden ">
               <p className="text-[#bebdbd] text-sm">Total Free Customer Care</p>
               <h6 className="font-semibold text-lg">+(0) 123 050 945 02</h6>
             </div>
-            <div className="text-white">
+            <div className="text-white xl:hidden">
               <p className="text-[#bebdbd] text-sm">Need Live Support?</p>
               <h6 className="font-semibold text-lg">hi@trc.com</h6>
             </div>
+
+            <div className="hidden xl:flex gap-x-10">
+              <div className="text-white  ">
+                <p className="text-[#bebdbd] text-sm">
+                  Total Free Customer Care
+                </p>
+                <h6 className="font-semibold text-lg">+(0) 123 050 945 02</h6>
+              </div>
+              <div className="text-white ">
+                <p className="text-[#bebdbd] text-sm">Need Live Support?</p>
+                <h6 className="font-semibold text-lg">hi@trc.com</h6>
+              </div>
+            </div>
             <div>
-              <h6 className="text-white font-semibold text-lg mb-4">Keep Yourself Up to Date</h6>
+              <h6 className="text-white font-semibold text-lg mb-4">
+                Keep Yourself Up to Date
+              </h6>
               <div className="relative">
                 <input
                   type="email"
@@ -111,14 +161,26 @@ export default function Footer() {
         <div className="py-6 text-center sm:text-left">
           <div className="flex flex-col sm:flex-row justify-between items-center">
             <p className="text-white text-sm mb-2 sm:mb-0">
-              © 2024 Tricity Real Estate (TRS)
+              © {new Date().getFullYear()} Tricity Real Estate (TRS)
             </p>
             <p className="text-white text-sm mb-2 sm:mb-0">
               <Link href="https://www.futuretouch.in/" target="_blank">
                 Designed by ❤️ Future IT Touch Pvt. Ltd
               </Link>
             </p>
-            <p className="text-white text-sm">Privacy · Terms · Sitemap</p>
+            <p className="text-white text-sm">
+              <Link href="/privacy-policy" className="hover:underline">
+                Privacy
+              </Link>{" "}
+              ·{" "}
+              <Link href="/terms-and-condition" className="hover:underline">
+                Terms
+              </Link>{" "}
+              ·{" "}
+              <Link href="/sitemap" className="hover:underline">
+                Sitemap
+              </Link>
+            </p>{" "}
           </div>
         </div>
       </div>

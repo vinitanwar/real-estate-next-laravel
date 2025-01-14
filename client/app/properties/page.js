@@ -487,7 +487,7 @@ export default function Page() {
         
 
         <div className='w-full  px-5 md:px-16 xl:px-32 py-8 bg-[#f7f7f7]'>
-          <div className='flex justify-between flex-col lg:flex-row gap-5 mb-5 '>
+          <div className='flex justify-between flex-col md:flex-row gap-5 mb-5 '>
             <div className='flex items-center '>
               {/* <CustomDropdown
                 options={['All', 'Sale', 'Rent', 'Buy']}

@@ -406,7 +406,7 @@ const SlugComponent = async ({ slug }) => {
   return (
     <>
       <div className="w-full ">
-        <div className="w-full h-auto shadow-lg rounded-md p-4 bg-white ">
+        <div className="w-full h-auto shadow-lg rounded-md px-5 md:px-16 xl:px-32 py-5 md: bg-white ">
           <div className="w-full relative">
             <Swiper
               spaceBetween={10}

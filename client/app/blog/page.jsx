@@ -39,13 +39,13 @@ const page = () => {
     <div>
       <div className="w-full px-5 md:px-16 xl:px-32 py-10 bg-[#f5f2f0] ">
         <div className="content mb-[20px]">
-          <h2 className="text-4xl my-2 text-[#181a20] font-semibold">
+          <h2 className="text-2xl md:text-3xl xl:text-4xl my-2 text-[#181a20] font-semibold">
             From Our Blog
           </h2>
           <p className="text-lg">Aliquam lacinia diam quis lacus euismod</p>
         </div>
-        <div className=" flex relative">
-          <div className="w-3/5 flex flex-col   gap-7  ">
+        <div className=" flex flex-col lg:flex-row  relative">
+          <div className="w-full lg:w-3/5 flex flex-col   gap-7  ">
             {blogData?.map((data, index) => {
               const dateObj = new Date(data.date);
               const month = monthNames[dateObj.getMonth()];
@@ -67,7 +67,7 @@ const page = () => {
               );
             })}
           </div>
-          <div className=" w-2/5     ">
+          <div className="w-full lg:w-2/5     ">
             {/* <form class="max-w-md mx-auto    flex flex-col gap-5 sticky top-32 right-0 ">
   <div class="relative z-0 w-full mb-5 group">
       <input type="email" name="floating_email" id="floating_email" class="block py-2.5 px-0 w-full text-sm  bg-transparent border-0 border-b-2 border-gray-300 appearance-none  dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
@@ -96,7 +96,7 @@ const page = () => {
   <button type="submit" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Submit</button>
   </div> 
 </form> */}
-            <div className="sticky top-20  w-5/6 m-auto   bg-white p-6 shadow-2xl rounded-2xl ">
+            <div className="sticky top-20  xl:w-5/6 m-auto   bg-white p-6 shadow-2xl rounded-2xl ">
               {" "}
               <ContactForm />
             </div>

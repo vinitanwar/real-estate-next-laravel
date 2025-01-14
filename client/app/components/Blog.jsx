@@ -74,8 +74,8 @@ useEffect(()=>{setblogData(state.data)},[state])
   return (
    <>
    <div className='w-full px-5 md:px-16 xl:px-32 py-10 '>
-   <div className="content mb-[20px]">
-        <h2 className="text-4xl my-2 text-[#181a20] font-semibold">
+   <div className="content ">
+        <h2 className="text-2xl md:text-3xl  my-2 text-[#181a20] font-semibold">
         From Our Blog
         </h2>
         <p className="text-lg">

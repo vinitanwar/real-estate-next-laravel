@@ -62,14 +62,14 @@ useEffect(()=>{settestimonialData(state.data)},[state])
     return (
         <div className="w-full px-5 md:px-16 xl:px-32 py-10 ">
             <div className="content">
-                <h2 className="text-4xl my-2 text-[#181a20] font-semibold">
+                <h2 className="text-2xl md:text-3xl  my-2 text-[#181a20] font-semibold">
                     People Love Living with Realton
                 </h2>
                 <p className="text-lg">
                     Aliquam lacinia diam quis lacus euismod
                 </p>
             </div>
-            <div className='w-full flex gap-3 mt-[40px]'>
+            <div className='w-full flex gap-3 '>
                 <Swiper
                     modules={[Pagination, Navigation]}
                     spaceBetween={30}

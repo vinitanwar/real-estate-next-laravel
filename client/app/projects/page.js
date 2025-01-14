@@ -73,7 +73,7 @@ const CustomPriceRangeFilter = ({ selectedRange, onApply }) => {
             </svg>
           </button>
           {isOpen && (
-            <div className="absolute w-[300px] z-20 right-0  lg:right-[-138px] bg-white border border-gray-300 rounded-lg shadow-lg mt-2 p-4">
+            <div className="absolute w-[300px] z-20 right-0 md:right-[-138px] bg-white border border-gray-300 rounded-lg shadow-lg mt-2 p-4">
               <div className="mb-4">
                 <label className="block text-md font-bold text-gray-700">Price Range</label>
                 <RangeSlider
@@ -484,8 +484,8 @@ export default function Page() {
       </div>
 
         <div className='w-full px-5 md:px-16 xl:px-32  py-8 bg-[#f7f7f7]'>
-          <div className='flex justify-between flex-col lg:flex-row gap-5 mb-5 px-7'>
-            <div className='flex items-center text-nowrap'>
+          <div className='flex justify-between flex-col md:flex-row gap-5 mb-5 lg:px-7'>
+            <div className='flex flex-row items-center text-nowrap '>
               {/* <CustomDropdown
                 options={['All', 'Sale', 'Rent', 'Buy']}
                 selectedOption={filter.type}
@@ -505,20 +505,23 @@ export default function Page() {
             </div>
 
             <div className='flex items-center px-5 gap-x-2'>
-              <span className='text-lg text-[#717171]'>
+              <span className='text-lg text-gray-600'>
                 Sort By
               </span>
               <select
-                className='bg-transparent pt-[0.375rem] pr-[2.25rem] pb-[0.375rem] pl-[0.75rem] font-medium text-[#212529] text-[15px]'
-                onChange={(e) => setSelectedSort(e.target.value)}
-              >
-                {['newest', 'oldest', 'best Seller', 'price lower', 'price upper'].map((value) => {
-                  const capitalizedValue = value.split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ');
-                  return (
-                    <option value={value} key={value}>{capitalizedValue}</option>
-                  );
-                })}
-              </select>
+  className="bg-white text-gray-800 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 p-2.5 px-5 font-medium text-sm transition-all duration-300 ease-in-out hover:bg-gray-100"
+  onChange={(e) => setSelectedSort(e.target.value)}
+>
+  {['newest', 'oldest', 'best Seller', 'price lower', 'price upper'].map((value) => {
+    const capitalizedValue = value.split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ');
+    return (
+      <option value={value} key={value}>
+        {capitalizedValue}
+      </option>
+    );
+  })}
+</select>
+
             </div>
           </div>
 
